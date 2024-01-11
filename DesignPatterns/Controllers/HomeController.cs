@@ -38,7 +38,7 @@ namespace DesignPatterns.Controllers
         public IActionResult AddMustang()
         {
             Vehicle v = VehicleFactory.CreateVehicle("");
-            v.Color = "Azul";
+            v.Color = "Blue";
             _vehicleRepository.AddVehicle(v);
 
             ICollection<Vehicle> vehicles = _vehicleRepository.GetVehicles();

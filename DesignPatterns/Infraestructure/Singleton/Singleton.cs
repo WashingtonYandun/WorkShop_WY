@@ -1,5 +1,5 @@
 ﻿using DesignPatterns.Models;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 
 namespace DesignPatterns.Infraestructure.Singleton
@@ -8,19 +8,16 @@ namespace DesignPatterns.Infraestructure.Singleton
     {
         public ICollection<Vehicle> Vehiculos { get; set; }
 
-        private static MemoryCollection Instance;
+        private static readonly Lazy<MemoryCollection> LazyInstance = new Lazy<MemoryCollection>(() => new MemoryCollection());
 
-        public MemoryCollection()
+        private MemoryCollection()
         {
             Vehiculos = new List<Vehicle>();
         }
+
         public static MemoryCollection GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new MemoryCollection();
-            }
-            return Instance;
+            return LazyInstance.Value;
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Models
+﻿namespace DesignPatterns.Models
 {
     public class Motocycle : Vehicle
     {
